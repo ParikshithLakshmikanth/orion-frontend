@@ -6,7 +6,14 @@ import {
 import type { ReactNode } from "react";
 import { clearToken } from "@/lib/orion-api";
 
-const nav = [
+type NavItem = {
+  to: string;
+  label: string;
+  icon: React.ComponentType<{ className?: string }>;
+  hint?: string;
+};
+
+const nav: NavItem[] = [
   { to: "/", label: "Overview", icon: Gauge },
   { to: "/phantom", label: "Phantom", icon: Ghost, hint: "Entity analysis" },
   { to: "/mosaic", label: "Mosaic", icon: Network, hint: "Graph builder" },
@@ -17,7 +24,7 @@ const nav = [
   { to: "/alerts", label: "Alerts", icon: AlertTriangle },
   { to: "/dataset", label: "Dataset", icon: Database },
   { to: "/settings", label: "Settings", icon: Settings },
-] as const;
+];
 
 export function AppShell({ children }: { children: ReactNode }) {
   const router = useRouter();
