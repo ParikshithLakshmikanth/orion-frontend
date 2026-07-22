@@ -9,8 +9,68 @@
 // Additionally, you should also exclude this file from your linter and/or formatter to prevent it from being checked or modified.
 
 import { Route as rootRouteImport } from './routes/__root'
+import { Route as SettingsRouteImport } from './routes/settings'
+import { Route as PhantomRouteImport } from './routes/phantom'
+import { Route as MosaicRouteImport } from './routes/mosaic'
+import { Route as MirageRouteImport } from './routes/mirage'
+import { Route as LoginRouteImport } from './routes/login'
+import { Route as IntelligenceRouteImport } from './routes/intelligence'
+import { Route as EclipseRouteImport } from './routes/eclipse'
+import { Route as DatasetRouteImport } from './routes/dataset'
+import { Route as ConstellationRouteImport } from './routes/constellation'
+import { Route as AlertsRouteImport } from './routes/alerts'
 import { Route as IndexRouteImport } from './routes/index'
 
+const SettingsRoute = SettingsRouteImport.update({
+  id: '/settings',
+  path: '/settings',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const PhantomRoute = PhantomRouteImport.update({
+  id: '/phantom',
+  path: '/phantom',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const MosaicRoute = MosaicRouteImport.update({
+  id: '/mosaic',
+  path: '/mosaic',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const MirageRoute = MirageRouteImport.update({
+  id: '/mirage',
+  path: '/mirage',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const LoginRoute = LoginRouteImport.update({
+  id: '/login',
+  path: '/login',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const IntelligenceRoute = IntelligenceRouteImport.update({
+  id: '/intelligence',
+  path: '/intelligence',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const EclipseRoute = EclipseRouteImport.update({
+  id: '/eclipse',
+  path: '/eclipse',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const DatasetRoute = DatasetRouteImport.update({
+  id: '/dataset',
+  path: '/dataset',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const ConstellationRoute = ConstellationRouteImport.update({
+  id: '/constellation',
+  path: '/constellation',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const AlertsRoute = AlertsRouteImport.update({
+  id: '/alerts',
+  path: '/alerts',
+  getParentRoute: () => rootRouteImport,
+} as any)
 const IndexRoute = IndexRouteImport.update({
   id: '/',
   path: '/',
@@ -19,28 +79,172 @@ const IndexRoute = IndexRouteImport.update({
 
 export interface FileRoutesByFullPath {
   '/': typeof IndexRoute
+  '/alerts': typeof AlertsRoute
+  '/constellation': typeof ConstellationRoute
+  '/dataset': typeof DatasetRoute
+  '/eclipse': typeof EclipseRoute
+  '/intelligence': typeof IntelligenceRoute
+  '/login': typeof LoginRoute
+  '/mirage': typeof MirageRoute
+  '/mosaic': typeof MosaicRoute
+  '/phantom': typeof PhantomRoute
+  '/settings': typeof SettingsRoute
 }
 export interface FileRoutesByTo {
   '/': typeof IndexRoute
+  '/alerts': typeof AlertsRoute
+  '/constellation': typeof ConstellationRoute
+  '/dataset': typeof DatasetRoute
+  '/eclipse': typeof EclipseRoute
+  '/intelligence': typeof IntelligenceRoute
+  '/login': typeof LoginRoute
+  '/mirage': typeof MirageRoute
+  '/mosaic': typeof MosaicRoute
+  '/phantom': typeof PhantomRoute
+  '/settings': typeof SettingsRoute
 }
 export interface FileRoutesById {
   __root__: typeof rootRouteImport
   '/': typeof IndexRoute
+  '/alerts': typeof AlertsRoute
+  '/constellation': typeof ConstellationRoute
+  '/dataset': typeof DatasetRoute
+  '/eclipse': typeof EclipseRoute
+  '/intelligence': typeof IntelligenceRoute
+  '/login': typeof LoginRoute
+  '/mirage': typeof MirageRoute
+  '/mosaic': typeof MosaicRoute
+  '/phantom': typeof PhantomRoute
+  '/settings': typeof SettingsRoute
 }
 export interface FileRouteTypes {
   fileRoutesByFullPath: FileRoutesByFullPath
-  fullPaths: '/'
+  fullPaths:
+    | '/'
+    | '/alerts'
+    | '/constellation'
+    | '/dataset'
+    | '/eclipse'
+    | '/intelligence'
+    | '/login'
+    | '/mirage'
+    | '/mosaic'
+    | '/phantom'
+    | '/settings'
   fileRoutesByTo: FileRoutesByTo
-  to: '/'
-  id: '__root__' | '/'
+  to:
+    | '/'
+    | '/alerts'
+    | '/constellation'
+    | '/dataset'
+    | '/eclipse'
+    | '/intelligence'
+    | '/login'
+    | '/mirage'
+    | '/mosaic'
+    | '/phantom'
+    | '/settings'
+  id:
+    | '__root__'
+    | '/'
+    | '/alerts'
+    | '/constellation'
+    | '/dataset'
+    | '/eclipse'
+    | '/intelligence'
+    | '/login'
+    | '/mirage'
+    | '/mosaic'
+    | '/phantom'
+    | '/settings'
   fileRoutesById: FileRoutesById
 }
 export interface RootRouteChildren {
   IndexRoute: typeof IndexRoute
+  AlertsRoute: typeof AlertsRoute
+  ConstellationRoute: typeof ConstellationRoute
+  DatasetRoute: typeof DatasetRoute
+  EclipseRoute: typeof EclipseRoute
+  IntelligenceRoute: typeof IntelligenceRoute
+  LoginRoute: typeof LoginRoute
+  MirageRoute: typeof MirageRoute
+  MosaicRoute: typeof MosaicRoute
+  PhantomRoute: typeof PhantomRoute
+  SettingsRoute: typeof SettingsRoute
 }
 
 declare module '@tanstack/react-router' {
   interface FileRoutesByPath {
+    '/settings': {
+      id: '/settings'
+      path: '/settings'
+      fullPath: '/settings'
+      preLoaderRoute: typeof SettingsRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/phantom': {
+      id: '/phantom'
+      path: '/phantom'
+      fullPath: '/phantom'
+      preLoaderRoute: typeof PhantomRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/mosaic': {
+      id: '/mosaic'
+      path: '/mosaic'
+      fullPath: '/mosaic'
+      preLoaderRoute: typeof MosaicRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/mirage': {
+      id: '/mirage'
+      path: '/mirage'
+      fullPath: '/mirage'
+      preLoaderRoute: typeof MirageRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/login': {
+      id: '/login'
+      path: '/login'
+      fullPath: '/login'
+      preLoaderRoute: typeof LoginRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/intelligence': {
+      id: '/intelligence'
+      path: '/intelligence'
+      fullPath: '/intelligence'
+      preLoaderRoute: typeof IntelligenceRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/eclipse': {
+      id: '/eclipse'
+      path: '/eclipse'
+      fullPath: '/eclipse'
+      preLoaderRoute: typeof EclipseRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/dataset': {
+      id: '/dataset'
+      path: '/dataset'
+      fullPath: '/dataset'
+      preLoaderRoute: typeof DatasetRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/constellation': {
+      id: '/constellation'
+      path: '/constellation'
+      fullPath: '/constellation'
+      preLoaderRoute: typeof ConstellationRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/alerts': {
+      id: '/alerts'
+      path: '/alerts'
+      fullPath: '/alerts'
+      preLoaderRoute: typeof AlertsRouteImport
+      parentRoute: typeof rootRouteImport
+    }
     '/': {
       id: '/'
       path: '/'
@@ -53,17 +257,17 @@ declare module '@tanstack/react-router' {
 
 const rootRouteChildren: RootRouteChildren = {
   IndexRoute: IndexRoute,
+  AlertsRoute: AlertsRoute,
+  ConstellationRoute: ConstellationRoute,
+  DatasetRoute: DatasetRoute,
+  EclipseRoute: EclipseRoute,
+  IntelligenceRoute: IntelligenceRoute,
+  LoginRoute: LoginRoute,
+  MirageRoute: MirageRoute,
+  MosaicRoute: MosaicRoute,
+  PhantomRoute: PhantomRoute,
+  SettingsRoute: SettingsRoute,
 }
 export const routeTree = rootRouteImport
   ._addFileChildren(rootRouteChildren)
   ._addFileTypes<FileRouteTypes>()
-
-import type { getRouter } from './router.tsx'
-import type { startInstance } from './start.ts'
-declare module '@tanstack/react-start' {
-  interface Register {
-    ssr: true
-    router: Awaited<ReturnType<typeof getRouter>>
-    config: Awaited<ReturnType<typeof startInstance.getOptions>>
-  }
-}
